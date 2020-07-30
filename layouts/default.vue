@@ -1,5 +1,27 @@
 <template>
-  <div>
+ <div>
+    <nav class="flex items-center justify-between flex-wrap bg-purple-400 p-6">
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <span class="font-semibold text-xl tracking-tight">Nuxt Dupiter</span>
+      </div>
+       <!-- <select>
+        <option>
+          <nuxt-link :to="{ query: { lang: 'ta'}}">Tamil</nuxt-link>
+        </option>
+        <option>
+          <nuxt-link :to="{ query: { lang: 'en'}}">English</nuxt-link>
+        </option>
+      </select> -->
+      <div class=" xl:justify-around">
+      <nuxt-link :to="{ query: { lang: 'ta'}}">Tamil</nuxt-link>
+      <nuxt-link :to="{ query: { lang: 'en'}}">English</nuxt-link>
+      </div>
+      <!-- <select>
+        <option :to="{ query: { lang: 'ta'}}">$1,000</option>
+        <option :to="{ query: { lang: 'en'}}">$5,000</option>
+      </select> -->
+      <div class="block lg:hidden"></div>
+    </nav>
     <Nuxt />
   </div>
 </template>

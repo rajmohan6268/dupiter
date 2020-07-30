@@ -1,13 +1,62 @@
 <template>
-  <div class="container">
-    <input type="file" @change="chooseFile($event)" />
-    <select v-model="headerToClean">
+  <div class="container mx-auto">
+    <!-- <input type="file" @change="chooseFile($event)" /> -->
+    <!-- <select v-model="headerToClean">
       <option v-for="(h, index) in headers" :key="index" :value="h">{{ h }}</option>
-    </select>
-    <button @click="downloadCSV()">{{ $t('downloadText') }}</button>
-    <br />
-    <nuxt-link :to="{ query: { lang: 'ta'}}">Tamil</nuxt-link>
+    </select>-->
+    <!-- <button @click="downloadCSV()">{{ $t('downloadText') }}</button>
+    <br />-->
+    <!-- <nuxt-link :to="{ query: { lang: 'ta'}}">Tamil</nuxt-link>
     <nuxt-link :to="{ query: { lang: 'en'}}">English</nuxt-link>
+    <div>
+      <select>
+        <option :to="{ query: { lang: 'ta'}}">$1,000</option>
+        <option :to="{ query: { lang: 'en'}}">$5,000</option>
+      </select> -->
+      <div class="md:flex p-8">
+        <div class="md:flex-shrink-0">
+          <div class="flex items-center">
+            <label
+              class="flex flex-col items-center px-4 py-6 rounded-lg shadow-lg tracking-wide uppercase border border-purple-500 cursor-pointer hover:text-indigo-900"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
+                />
+              </svg>
+              <span class="mt-2 text-base leading-normal">Select a file</span>
+              <input type="file" @change="chooseFile($event)" />
+              <!-- <input type="file" class="hidden" /> -->
+            </label>
+          </div>
+        </div>
+        <div class="mt-4 md:mt-0 md:ml-6">
+          <label class="block mt-4">
+            <span class="text-gray-700">select feilds</span>
+            <select class="form-select mt-1 block w-full" v-model="headerToClean">
+              <option v-for="(h, index) in headers" :key="index" :value="h">{{ h }}</option>
+            </select>
+          </label>
+          <button
+            @click="downloadCSV()"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+          >{{ $t('downloadText') }}</button>
+
+          <!-- <a
+            href="#"
+            class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline"
+          >Finding customers for your new business</a>
+          <p
+            class="mt-2 text-gray-600"
+          >Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>-->
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -18,7 +67,7 @@ let objectStore: any = {};
 let cleanData: any[] = [];
 
 export default Vue.extend({
-  middleware: 'i18n',
+  middleware: "i18n",
   data() {
     return {
       fileContent: "",
