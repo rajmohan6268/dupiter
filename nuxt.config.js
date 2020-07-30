@@ -69,10 +69,14 @@ export default {
           fallbackLocale: 'en',
           messages: {
             en: {
-              downloadText: 'Download'
+              downloadText: 'Download',
+              selectafile :'select a file',
+              slctfld : 'select feilds'
             },
             ta: {
-              downloadText: 'பதிவிறக்க'
+              downloadText: 'பதிவிறக்க',
+              selectafile :'ஒரு கோப்பைத் தேர்ந்தெடுக்கவும்',
+              slctfld : 'புலங்களைத் தேர்ந்தெடுக்கவும்'
             }
           }
         }

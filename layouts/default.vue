@@ -1,25 +1,27 @@
 <template>
- <div>
+  <div>
     <nav class="flex items-center justify-between flex-wrap bg-purple-400 p-6">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <span class="font-semibold text-xl tracking-tight">Nuxt Dupiter</span>
+        <span class="font-semibold text-xl tracking-tight">
+          <img src="filter.svg" alt="dupiter logo" width="40" height="50" /> Nuxt Dupiter
+        </span>
       </div>
-       <!-- <select>
+      <!-- <select>
         <option>
           <nuxt-link :to="{ query: { lang: 'ta'}}">Tamil</nuxt-link>
         </option>
         <option>
           <nuxt-link :to="{ query: { lang: 'en'}}">English</nuxt-link>
         </option>
-      </select> -->
-      <div class=" xl:justify-around">
-      <nuxt-link :to="{ query: { lang: 'ta'}}">Tamil</nuxt-link>
-      <nuxt-link :to="{ query: { lang: 'en'}}">English</nuxt-link>
+      </select>-->
+      <div class="xl:justify-around text-white">
+        <nuxt-link :to="{ query: { lang: 'ta'}}">தமிழ்</nuxt-link>
+        <nuxt-link :to="{ query: { lang: 'en'}}">English</nuxt-link>
       </div>
       <!-- <select>
         <option :to="{ query: { lang: 'ta'}}">$1,000</option>
         <option :to="{ query: { lang: 'en'}}">$5,000</option>
-      </select> -->
+      </select>-->
       <div class="block lg:hidden"></div>
     </nav>
     <Nuxt />
@@ -28,15 +30,8 @@
 
 <style>
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

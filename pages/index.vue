@@ -29,25 +29,24 @@
                   d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
                 />
               </svg>
-              <span class="mt-2 text-base leading-normal">Select a file</span>
-              <input type="file" @change="chooseFile($event)" />
-              <!-- <input type="file" class="hidden" /> -->
+              <h1 :v-if="!fileContent"><span class="mt-2 text-base leading-normal">{{ $t('selectafile') }}</span></h1>
+              <input type="file" class="hidden" @change="chooseFile($event)" />
+              <!-- <input type="file"  @change="chooseFile($event) class="hidden" /> -->
             </label>
+            <!-- <h1 :v-if="fileContent">{{ file.name }}selected </h1> -->
           </div>
         </div>
         <div class="mt-4 md:mt-0 md:ml-6">
           <label class="block mt-4">
-            <span class="text-gray-700">select feilds</span>
-            <select class="form-select mt-1 block w-full" v-model="headerToClean">
+            <span class="text-gray-700"><strong class="text-teal-500 rounded-lg">{{$t('slctfld')}}</strong>
+            <select class="form-select mt-1 block w-full border border-blue-500" v-model="headerToClean">
               <option v-for="(h, index) in headers" :key="index" :value="h">{{ h }}</option>
-            </select>
+            </select></span>
           </label>
-          <button
-            @click="downloadCSV()"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-          >{{ $t('downloadText') }}</button>
-
-          <!-- <a
+          <div class="p-3">
+          <button @click="downloadCSV()" class=" p-3 bg-purple-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" ><div><!-- <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg> -->{{ $t('downloadText') }}</div></button>
+           </div>
+           <!-- <a
             href="#"
             class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline"
           >Finding customers for your new business</a>
@@ -56,6 +55,11 @@
           >Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>-->
         </div>
       </div>
+      <!-- <h1>data</h1> -->
+      <!-- <table style="width:100%">
+        <tr v-bind:v-for="a in headerToClean" ><th>{{ a }}</th> </tr>
+      </table> -->
+
     </div>
   </div>
 </template>
@@ -86,14 +90,17 @@ export default Vue.extend({
         alert("Please choose a file");
         return true;
       }
-
+console.log(file.name)
       // Read the file content
       const reader: FileReader = new FileReader();
       reader.readAsText(file);
-
       reader.onload = () => {
         this.fileContent = reader.result as string;
         this.parseCSV(this.fileContent);
+if (file) {
+        alert(" you selcted a file ! now chooose the feild you want to remove duplicates");
+        return true;
+      }
       };
     },
     // Parsing the CSV Headers and Data
