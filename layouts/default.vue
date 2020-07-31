@@ -25,8 +25,9 @@
       </select>-->
       <div class="block lg:hidden"></div>
     </nav>
-    <Nuxt /><!-- <div class=" footr sm:absolute w-full bg-indigo-900 text-center py-4 lg:px-4"> -->
+    <Nuxt />
     <div style="background-color:#00bcd4" class=" footr sm:absolute w-full  text-center py-4 lg:px-4">
+    <!-- <div class=" footr sm:absolute w-full bg-indigo-900 text-center py-4 lg:px-4"> -->
       <div
         class="p-2 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
       >
