@@ -13,54 +13,54 @@
         <option :to="{ query: { lang: 'ta'}}">$1,000</option>
         <option :to="{ query: { lang: 'en'}}">$5,000</option>
       </select> -->
-      <div class="md:flex p-8">
-        <div class="md:flex-shrink-0">
-          <div class="flex items-center">
-            <label
-              class="flex flex-col items-center px-4 py-6 rounded-lg shadow-lg tracking-wide uppercase border border-purple-500 cursor-pointer hover:text-indigo-900"
+    <div class="md:flex p-8">
+      <div class="md:flex-shrink-0">
+        <div class="flex items-center">
+          <label
+            class="flex flex-col items-center px-4 py-6 rounded-lg shadow-lg tracking-wide uppercase border border-purple-500 cursor-pointer hover:text-indigo-900"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
             >
-              <svg
-                class="w-8 h-8"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
-                />
-              </svg>
-              <h1 :v-if="!fileContent"><span class="mt-2 text-base leading-normal">{{ $t('selectafile') }}</span></h1>
-              <input type="file" class="hidden" @change="chooseFile($event)" />
-              <!-- <input type="file"  @change="chooseFile($event) class="hidden" /> -->
-            </label>
-            <!-- <h1 :v-if="fileContent">{{ file.name }}selected </h1> -->
-          </div>
+              <path
+                d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z"
+              />
+            </svg>
+            <h1 :v-if="!fileContent"><span class="mt-2 text-base leading-normal">{{ $t('selectafile') }}</span></h1>
+            <input type="file" class="hidden" @change="chooseFile($event)" />
+            <!-- <input type="file"  @change="chooseFile($event) class="hidden" /> -->
+          </label>
+          <!-- <h1 :v-if="fileContent">{{ file.name }}selected </h1> -->
         </div>
-        <div class="mt-4 md:mt-0 md:ml-6">
-          <label class="block mt-4">
-            <span class="text-gray-700"><strong class="text-teal-500 rounded-lg">{{$t('slctfld')}}</strong>
-            <select class="form-select mt-1 block w-full border border-blue-500" v-model="headerToClean">
+      </div>
+      <div class="mt-4 md:mt-0 md:ml-6">
+        <label class="block mt-4">
+          <span class="text-gray-700"><strong class="text-teal-500 rounded-lg">{{ $t('slctfld') }}</strong>
+            <select v-model="headerToClean" class="form-select mt-1 block w-full border border-blue-500">
               <option v-for="(h, index) in headers" :key="index" :value="h">{{ h }}</option>
             </select></span>
-          </label>
-          <div class="p-3">
-          <button @click="downloadCSV()" class=" p-3 bg-purple-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" ><div><!-- <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg> -->{{ $t('downloadText') }}</div></button>
-           </div>
-           <!-- <a
+        </label>
+        <div class="p-3">
+          <button class=" p-3 bg-purple-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" @click="downloadCSV()"><div><!-- <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg> -->{{ $t('downloadText') }}</div></button>
+        </div>
+      <!-- <a
             href="#"
             class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline"
           >Finding customers for your new business</a>
           <p
             class="mt-2 text-gray-600"
           >Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>-->
-        </div>
       </div>
-      <!-- <h1>data</h1> -->
-      <!-- <table style="width:100%">
-        <tr v-bind:v-for="a in headerToClean" ><th>{{ a }}</th> </tr>
+    </div>
+    <!-- <h1>data</h1> -->
+    <!-- <table style="width:100%">
+      <tr v-bind:v-for="a in headerToClean" ><th>{{ a }}</th> </tr>
       </table> -->
 
-    </div>
+  </div>
   </div>
 </template>
 <script lang="ts">
@@ -98,7 +98,7 @@ console.log(file.name)
         this.fileContent = reader.result as string;
         this.parseCSV(this.fileContent);
 if (file) {
-        alert(" you selcted a file ! now chooose the feild you want to remove duplicates");
+        alert(" you have selected a file ! now chooose the field you want to remove duplicates");
         return true;
       }
       };
