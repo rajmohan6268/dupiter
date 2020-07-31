@@ -17,11 +17,11 @@
       <div class="md:flex-shrink-0">
         <div class="flex items-center">
           <label
-            class="flex flex-col items-center px-4 py-6 rounded-lg shadow-lg tracking-wide uppercase border border-purple-500 cursor-pointer hover:text-indigo-900"
+            class="flex  flex-col items-center px-4 py-6 rounded-lg shadow-lg tracking-wide uppercase border border-indigo-700 cursor-pointer hover:text-indigo-900"
           >
             <svg
-              class="w-8 h-8"
-              fill="currentColor"
+              class="w-8 h-8 "
+              fill="#90cdf4"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
             >
@@ -38,15 +38,16 @@
       </div>
       <div class="mt-4 md:mt-0 md:ml-6">
         <label class="block mt-4">
-          <span class="text-gray-700"><strong class="text-teal-500 rounded-lg">{{ $t('slctfld') }}</strong>
-            <select v-model="headerToClean" class="form-select mt-1 block w-full border border-blue-500">
+          <span class="text-gray-700"><strong class=" rounded-lg">{{ $t('slctfld') }}</strong>
+            <select v-model="headerToClean" class="form-select mt-1 block w-full border border-indigo-700">
               <option v-for="(h, index) in headers" :key="index" :value="h">{{ h }}</option>
             </select></span>
         </label>
-        <div class="p-3">
-          <button class=" p-3 bg-purple-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" @click="downloadCSV()"><div><!-- <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg> -->{{ $t('downloadText') }}</div></button>
-        </div>
-      <!-- <a
+        <div class="p-3"><!-- <button class=" p-3 bg-purple-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" @click="downloadCSV()"><div>{{ $t('downloadText') }}</div></button> --><!-- <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg> -->
+        <!-- <button style="background-color:#ff5722" class=" p-3  hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" @click="downloadCSV()"><div><svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>{{ $t('downloadText') }}</div></button> -->
+        <!-- <button  class=" p-3  bg-red-400 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-full" @click="downloadCSV()"><div>{{ $t('downloadText') }}</div></button> -->
+      <button  class=" p-3 transition duration-500 ease-in-out bg-red-400 hover:bg-green-400  transform hover:-translate-y-1 hover:scale-110 text-white font-bold py-2 px-4 rounded-full" @click="downloadCSV()"><div>{{ $t('downloadText') }}</div></button>
+       </div><!-- <a
             href="#"
             class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline"
           >Finding customers for your new business</a>
